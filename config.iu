@@ -1,0 +1,16 @@
+require 'rubygems'
+require 'bundler'
+Bundler.setup
+
+$LOAD_PATH << ::File.expand_path('../lib', __FILE__)
+
+require 'spokesman'
+
+use Igor::Logger, $stderr
+use Igor::PayloadParsers::JSON
+
+use Spokesman::Campfire
+
+run lambda {|env|}
+
+# vim: ft=ruby
