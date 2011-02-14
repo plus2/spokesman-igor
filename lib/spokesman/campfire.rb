@@ -28,7 +28,7 @@ module Spokesman
         msg = "[#{app}] #{msg}"
       end
 
-      room(room_name).message(msg)
+      room(room_name).message(msg.tapp("sending message"))
     end
 
     def rooms
@@ -37,7 +37,7 @@ module Spokesman
 
     def room(name)
       name = name.downcase
-      Api.room( rooms.find {|r| r.tapp['name'].downcase == name}['id'] )
+      Api.room( rooms.find {|r| r['name'].downcase == name}['id'] )
     end
   end
 end
